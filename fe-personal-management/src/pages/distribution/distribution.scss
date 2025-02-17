@@ -1,0 +1,149 @@
+.salary-distribution {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .ant-table-tbody>tr {
+        transition: background 0.3s ease-in-out;
+
+        td {
+            font-weight: bold;
+            text-align: center;
+            padding: 12px;
+        }
+    }
+
+    // 🔹 Lista de colores de cuentas (sin #)
+    $account-colors: (
+        "bbva-familiar": #F4CCCC,
+        "bbva-mari": #D9EAD3,
+        "bbva-adrian": #99ccff,
+        "santander-mari": #B4A7D6,
+        "santander-adrian": #ff4d4d,
+        "santander-familiar": #cc6666,
+        "pichincha-ahorro-mari": #ffcc66,
+        "pichincha-ahorro-adrian": #ff9933,
+        "olguita": #008080,
+        "pichincha-familiar": #ffb3b3,
+    );
+
+// 🔹 Iterar sobre los colores y asignarlos a las filas
+@each $name, $color in $account-colors {
+    .row-#{$name} {
+        background-color: $color !important;
+      
+    }
+}
+.ant-table-cell-row-hover{
+    background-color: gray !important;
+}
+// 🔹 Excedentes en Verde
+.row-total {
+    background-color: #251111 !important;
+    color: white !important;
+    font-weight: bold;
+}
+// 🔹 Excedentes en Verde
+.row-excedente {
+    background-color: #28a745 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+// 🔹 Sección de Introducción
+.intro {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+        margin-top: 10px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+    }
+}
+
+
+// 🔹 Tabla de Distribución
+.ant-table {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    thead {
+        tr {
+            background: #f0f2f5;
+        }
+
+        th {
+            font-weight: bold;
+            text-align: left;
+            padding: 12px;
+            font-size: 14px;
+        }
+    }
+
+    tbody {
+        tr {
+            transition: background 0.2s ease-in-out;
+
+            &:hover {
+                background: #f9f9f9;
+            }
+
+            td {
+                text-align: left;
+                padding: 12px;
+            }
+        }
+    }
+}
+
+// 🔹 Formulario de Distribución
+.distribution-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    h3 {
+        margin-right: 15px;
+        font-weight: bold;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .ant-input-number {
+        width: 120px;
+    }
+
+    .ant-btn-primary {
+        background-color: #1890ff;
+        font-weight: bold;
+        border-radius: 8px;
+        transition: background 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #0077cc;
+        }
+    }
+}
+}

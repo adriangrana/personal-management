@@ -1,0 +1,101 @@
+.savings {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+    // 🔹 Sección de Introducción
+    .intro {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+      h1 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #333;
+      }
+  
+      p {
+        font-size: 16px;
+        color: #555;
+        margin-top: 10px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+      }
+    }
+  
+    // 🔹 Tabla de Ingresos
+    .ant-table {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  
+      .ant-table-thead > tr > th {
+        background: #f8f9fa;
+        font-weight: bold;
+        text-align: left;
+      }
+  
+      .ant-table-tbody > tr > td {
+        font-size: 16px;
+      }
+  
+      .ant-table-tbody > tr:hover {
+        background-color: rgba(0, 123, 255, 0.1);
+      }
+    }
+  
+    // 🔹 Botón para Agregar Ingreso
+    .ant-btn-primary {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 20px;
+      padding: 10px 16px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #1890ff;
+      border-color: #1890ff;
+      transition: all 0.3s ease-in-out;
+  
+      &:hover {
+        background-color: #40a9ff;
+        border-color: #40a9ff;
+      }
+    }
+  
+    // 🔹 Botones de acciones en la tabla
+    .ant-btn {
+      margin-right: 8px;
+    }
+  
+    // 🔹 Estilos del Modal (Formulario de Ingresos)
+    .ant-modal {
+      border-radius: 10px;
+  
+      .ant-modal-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+  
+      .ant-modal-footer {
+        display: flex;
+        justify-content: space-between;
+      }
+  
+      .ant-form-item-label {
+        font-weight: bold;
+      }
+  
+      .ant-input, .ant-select-selector {
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+      }
+    }
+  }
+  

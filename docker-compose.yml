@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:15
+    container_name: personal_management_db
+    restart: always
+    environment:
+      POSTGRES_USER: personal_user
+      POSTGRES_PASSWORD: personal_pass
+      POSTGRES_DB: personal_management
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/init_database.sql:/docker-entrypoint-initdb.d/init_database.sql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "personal_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - personal_network
+
+
+  backend:
+    build: ./ms-personal-management
+    container_name: personal_management_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_USER=personal_user
+      - DATABASE_PASSWORD=personal_pass
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=personal_management
+    entrypoint: ["sh", "-c", "sleep 10 && poetry run python -m app.main"]
+    depends_on:
+      db:
+        condition: service_healthy 
+    networks:
+      - personal_network
+
+  frontend:
+    build: ./fe-personal-management
+    container_name: personal_management_frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://192.168.1.59:8000
+    depends_on:
+      - backend
+    networks:
+      - personal_network
+
+networks:
+  personal_network:
+    driver: bridge
+
+volumes:
+  pgdata:

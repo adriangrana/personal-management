@@ -1,0 +1,39 @@
+:root {
+    --primary-color: #607D8B;
+    --text-color: #FFFFFF;
+    --divider-color: #BDBDBD;
+    --primary-text: #757575;
+    --secondary-text: #757575;
+    --accent-color: #9E9E9E;
+    --dark-primary-color: #455A64;
+    --light-primary-color: #CFD8DC;
+}
+
+body {
+    background-color: var(--light-primary-color);
+    /* Fondo general */
+    color: var(--primary-text);
+    /* Color del texto */
+    font-family: Arial, sans-serif;
+    margin: auto;
+
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Reducir altura de filas en todas las tablas */
+.ant-table-tbody>tr>td {
+    height: 40px !important;
+    padding: 8px !important;
+    /* Ajusta el padding si es necesario */
+}
+
+.ant-table-thead>tr>th {
+    height: 40px !important;
+    padding: 8px !important;
+}
